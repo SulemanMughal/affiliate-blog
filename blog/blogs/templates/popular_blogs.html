@@ -1,0 +1,27 @@
+{% load static %}
+<section class="Moreposts">
+    <div class="container">
+      <div class="card-deck">
+      {% for blog in popular_section %}
+     
+            <div class="card mb-3" id="featuredCards">
+                <a href="#">
+                  <div class="row no-gutters">
+                    <div class="col-4" id="imageCard">
+                        <a href="{% url 'detail' blog.blog.slug %}"> <img src="/media/{{blog.blog.image}}" class="card-img" alt="..."></a>
+                    </div>
+                    <div class="col-8">
+                      <div class="card-body">
+                        <a href="{% url 'detail' blog.blog.slug %}"><h6 class="card-text" id="CardText">{{blog.blog.title}}</h6></a>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+      {% endfor %}    
+
+  
+  
+      </div>
+    </div>
+  </section>

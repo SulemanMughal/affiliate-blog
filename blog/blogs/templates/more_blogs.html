@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="morePostHeading">
+      <h4>More Posts!</h4>
+      <hr class="morePostUnderline">
+    </div>
+    {% for blog in list %}
+    <div class="card">
+      <a href="{% url 'detail' blog.slug %}" class="morepostsLinks">
+        <img class="card-img" src="/media/{{blog.image}}" alt="Card image">
+        <h3 class="card-title">{{blog.title}}</h3>
+      </a>
+    </div>
+    {% endfor %}
+    
+
+
+  </div>

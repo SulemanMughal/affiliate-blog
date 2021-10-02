@@ -1,0 +1,394 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}
+  {% endblock %}
+
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/flickity.min.css' %}">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+
+  <link rel="stylesheet" href="{% static 'css/small-footer.css' %}">
+
+
+
+  <style type="text/css">
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    @media (min-width: 992px) {
+      .dropdown:hover .dropdown-menu {
+        margin-top: -35px
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="jumbotron banner1">
+    <!-- Empty Black Space -->
+  </div>
+
+
+  <!-- ############################################################################## -->
+
+  <div class="small-nav">
+    <!--social head-->
+    <div class="social-head">
+      <div class="socio">
+        <div class="container">
+          <div class="social-buttons">
+            <!-- facebook  Button -->
+            <a href="#" target="blank" class="social-margin">
+              <div class="social-icon facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </div>
+            </a>
+            <!-- whatsapp  Button -->
+            <a href="#" target="blank" class="social-margin">
+              <div class="social-icon whatsapp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </div>
+            </a>
+            <!-- Instagram Button -->
+            <a href="#" class="social-margin" target="blank">
+              <div class="social-icon instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </div>
+            </a>
+            <!-- TwitterButton -->
+            <a href="#" target="blank" class="social-margin">
+              <div class="social-icon twitter">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </div>
+            </a>
+            <!-- Google-plus Button -->
+            <a href="#" target="blank" class="social-margin">
+              <div class="social-icon linkedin">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--navbar-->
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+      <div class="container">
+        <a class="navbar-brand"><img src="{% static 'logo/navbar-logo.png' %}" alt="logo" style="margin:-35% 0 -35% -25%"> </a>
+
+       
+      </div>
+    </nav>
+
+    <!--navbar with menus menus-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav2"
+          aria-controls="navbarNav2" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+   
+        <div class="collapse navbar-collapse" id="navbarNav2">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bloglist/bags">Bags</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="/bloglist/shoes">Shoes</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="/bloglist/wallet">Wallet</a>
+            </li>
+            <li class="nav-item">
+            <button id="mob-search-btn" class="btn " onclick="openSearch()"><i
+              class="fas fa-search"></i></button>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  </div>
+
+  <!-- ############################################################################## -->
+
+  <!-- ############################################################################## -->
+
+  <div class="large-nav">
+    <!--First navbar-->
+    <nav class="navbar navbar-expand-lg
+    navbar-dark bg-dark">
+      <div class="container">
+  
+
+        <a class="navbar-brand" href="#"><img src="{% static 'logo/navbar-logo.png' %}" alt="logo"></a>
+        <br><br><br>
+        <div class="socialIcons mr-auto">
+          <a href="#" class="NavsocialIcons my-2 my-sm-0"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" class="NavsocialIcons my-2 my-sm-0"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="NavsocialIcons my-2 my-sm-0"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="NavsocialIcons my-2 my-sm-0"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="NavsocialIcons my-2 my-sm-0"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </nav>
+    <!--Second navbar-->
+    <nav class="navbar navbar-expand-lg
+navbar-dark bg-dark">
+      <div class="container">
+        <form class="search-box my-2 my-lg-0 ml-auto">
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+          <button class="btn-dark" style="border:#000000;background:none "></button>
+        </form>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/bloglist/bags">Bags</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/bloglist/shoes">Shoes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/bloglist/wallet">Wallet</a>
+          </li>
+        </ul>
+        <form class="search-box my-2 my-lg-0 ml-auto">
+          <input class="form-control mr-sm-2 search-txt" type="search" placeholder="Enter text to search"
+            aria-label="Search">
+          <a href="#" class="navSearch my-2 my-sm-0 search-btn" onclick="openSearch()"><i class="fas fa-search"></i></a>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <!--Search Box Pop Up-->
+  <div id="myOverlay" class="overlay">
+    <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+    <div class="overlay-content">
+      <form action="{% url 'search' %}" method="GET">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+
+<!-- ############################################################################## -->
+
+  
+  {% block content %}
+
+  {% endblock %}
+
+
+  <!--large footer start-->
+  <footer class="large-footer">
+    <div class="footer-wrap">
+
+      <div class="second_class">
+        <div class="container second_class_bdr">
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+
+              <div ><img src="{% static 'logo/footer-logo.png' %}" alt="logo" style="margin:-60% 0% 0% -20%;" >
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-6">
+              <h3>About</h3>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a>
+                </li>
+                <li><a href="#">How it Works</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <h3>Support</h3>
+              <ul class="footer-category">
+                <li><a href="#">Contact Us</a>
+                </li>
+                <li><a href="#">FAQ</a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <h3>legal</h3>
+              <ul class="footer-links">
+                <li><a href="#">Terms of Service</a>
+                </li>
+
+                <li><a href="#">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="copyright"> Copyright 2021 | All Rights Reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- small footer start-->
+  <footer class="small-footer">
+    <div class="footer-wrap">
+   
+      <div class="second_class">
+        <div class="container second_class_bdr">
+          <div class="footer-logo"><img src="{% static 'logo/footer-logo.png' %}" alt="logo" style="margin:-70% 0% -50% -30%;" >
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h3>About</h3>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a>
+                </li>
+                <li><a href="#">How it Works</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h3>Support</h3>
+              <ul class="footer-category">
+                <li><a href="#">Contact Us</a>
+                </li>
+                <li><a href="#">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <h3>legal</h3>
+              <ul class="footer-links">
+                <li><a href="#">Terms of Service</a>
+                </li>
+
+                <li><a href="#">Privacy Policy</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+      
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="container">
+                <div class="footer_social_links">
+                  <div class="socio">
+                    <div class="container">
+                      <div class="social-buttons">
+                        <!-- facebook  Button -->
+                        <a href="#" target="blank" class="social-margin">
+                          <div class="social-icon facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                          </div>
+                        </a>
+                        <!-- Instagram Button -->
+                        <a href="#" class="social-margin" target="blank">
+                          <div class="social-icon instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                          </div>
+                        </a>
+                        <!-- Youtube Button -->
+                        <a href="#" target="blank" class="social-margin">
+                          <div class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                          </div>
+                        </a>
+                        <!-- TwitterButton -->
+                        <a href="#" target="blank" class="social-margin">
+                          <div class="social-icon twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                          </div>
+                        </a>
+                        <!-- Google-plus Button -->
+                        <a href="#" target="blank" class="social-margin">
+                          <div class="social-icon linkedin">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-12">
+              <h3 style="text-align: center;">Stay Connected</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="container-fluid">
+            <div class="copyright"> Copyright 2021 | All Rights Reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+
+  <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/scripts.min.js' %}"></script>
+
+  <script src="{% static 'js/scripts.js' %}"></script>
+
+  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+  <script src="{% static 'js/flickity.pkgd.min.js' %}"></script>
+  <!-- Font Awesome 5 links-->
+  <script src="https://kit.fontawesome.com/fddf5c0916.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/search-popup.js' %}"></script>
+
+
+
+
+</body>
+
+</html>

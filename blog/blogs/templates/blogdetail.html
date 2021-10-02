@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- *********************************  -->
+{% block title %}
+<title>{{blogs.title}}</title>
+<meta name="description" content="{{blogs.meta_description}}" >
+
+{% endblock %}
+<!-- *********************************  -->
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/blog-detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/topHeader.css' %}">
+<style>
+  /* to be added in the style tags*/
+:root{
+--gradient-color3: linear-gradient(to right bottom, #a71d31, #3f0d12 );
+--gradient-color2: linear-gradient(to right, #a71d31, #3f0d12 );
+}
+#postDeets{
+width: 100%;
+}
+#postDeets .container{
+width: 100%;
+padding: 50px 0px 20px 0px;
+font-family: Muli, sans-serif;
+font-weight: 200;
+color: #111;
+}
+.postHead{
+font-size: 40px;
+}
+.postWriter{
+margin-top: 2.5rem;
+font-size: 22px;
+color: rgb(129, 127, 127);
+}
+.postWriter span{
+font-family: GreatVibes-Regular;
+font-weight: normal;
+color: #111;
+}
+.postImg{
+width: 100%;
+}
+
+.mainImg img{
+width: 100%;
+height: 400px;
+
+
+}
+.postImg img{
+width: 50%;
+height: 50%;
+object-fit:cover;
+}
+.deets{
+padding-top: 3rem;
+}
+.deets p{
+font-family: Graphik, sans-serif;
+line-height: 35px;
+color: #111;
+
+}
+.deets p:first-child:first-letter{
+font-size: 80px;
+padding: 0.6rem;
+float: left;
+line-height: 0.6;
+margin-right: 0;
+}
+#postDeets #sellCards .card{
+border: none;
+border-radius: 0px;
+background: rgba(192, 192, 192, 0.1);
+transform: scale(1.01);
+}
+#postDeets #sellCards .card:hover{
+background: rgba(192, 192, 192, 0.2);
+transform: scale(1.03);
+}
+#postDeets #sellCards .card .card-img{
+height: 120px;
+object-fit:cover;
+border: none;
+border-radius: 0%;
+}
+#postDeets #sellCards .card .card-img:hover{
+opacity: 0.7;
+}
+#postDeets #sellCards .card .card-title{
+text-align: center;
+align-items: center;
+text-transform: uppercase;
+font-family: Muli;
+text-decoration: none;
+font-weight: 300;
+font-size: 19px;
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent;
+}
+.sellLink:hover{
+text-decoration: none;
+}
+#postDeets #sellCards .card .card-title:hover{
+text-decoration: none;
+color: rgb(129, 127, 127);
+}
+.sellCardName{
+text-align: center;
+align-items: center;
+margin-top: 10px;
+margin-bottom: 0%;
+font-family: Muli;
+text-transform: uppercase;
+font-size: 16px;
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent;
+}
+.sellQuality{
+text-align: center;
+align-items: center;
+margin-top: 15px;
+margin-bottom: 0%;
+font-family: GreatVibes-Regular;
+font-size: 20px;
+color: #111;
+text-transform: capitalize;
+}
+#postDeets #sellCards .card .card-footer{
+border: none;
+background: none;
+width: 100%;
+}
+#postDeets #sellCards .card .card-footer .btn-info{
+background: #111;
+border-radius: 0%;
+width: 100%;
+font-family: Muli;
+font-weight: 500;
+text-transform: uppercase;
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent;
+border-width: 1px;
+border-style: solid;
+border-image: 
+linear-gradient(
+    to right, 
+    #a71d31, #3f0d12
+    
+  ) 1;
+  transition: .05s;
+}
+#postDeets #sellCards .card .card-footer .btn-info:hover{
+background: 
+linear-gradient(
+    to right, 
+    #a71d31, #3f0d12
+    
+  );
+  color: #fafafa;
+  border: none;
+}
+.sellLists{
+margin-left: 30%;
+margin-right: 20%;
+margin-bottom: 0%;
+margin-top: 10px;
+}
+.sellList{
+list-style-type: circle;
+font-size: smaller;
+}
+.postHead2{
+font-size: 28px;
+margin-top: 50px;
+margin-bottom: 30px;
+}
+/*.realistic-marker-highlight{
+position:relative;
+}
+
+.realistic-marker-highlight:before{
+content:"";
+background-color: rgb(155, 153, 153);
+width:100%;
+height:1em;
+position:absolute;
+z-index:-1;
+filter:url(#marker-shape);
+left:-0.25em;
+top:0.1em;
+padding:0 0.25em;
+}*/
+/*.oneLine{
+background: linear-gradient(to left, #f69ec4, #f9dd94 100%);
+background-position: 0 100%;
+background-size: 100% 2px;
+background-repeat: repeat-x;   
+}*/
+.postText{
+font-family: Graphik, sans-serif;
+line-height: 35px;
+color: #111;
+margin-top: 20px;
+}
+.sellLists2{
+margin-left: 5%;
+margin-right: 5%;
+margin-bottom: 0%;
+font-family: Graphik, sans-serif;
+color: #111;
+}
+.postHighlight{
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent; 
+font-family: Muli;
+}
+a.postHighlight{
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent; 
+font-family: Muli;
+}
+a.postHighlight:hover{
+text-decoration: none;
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent; 
+opacity: 0.5;
+}
+.textBold{
+color: #000000;
+font-weight: 700;
+}
+.textUnderlined{
+background: var(--gradient-color2);
+-webkit-background-clip: text;
+color: transparent; 
+text-decoration: none;
+padding-bottom: 3px;
+border-width: 2px;
+border-style: solid;
+border-image: 
+linear-gradient(
+    to right, 
+    #a71d31, #3f0d12 100%) 0 0 100%;
+}
+.textBtn{
+transform: scale(1.05);
+border-radius: 0%;
+font-family: Muli;
+font-weight: 500;
+text-transform: uppercase;
+background: var(--gradient-color3);
+-webkit-background-clip: text;
+color: transparent;
+border-width: 1px;
+border-style: solid;
+border-image: 
+linear-gradient(
+    to right bottom, 
+    #a71d31, #3f0d12
+    
+  ) 1;
+}
+.textBtn:hover{
+background: 
+linear-gradient(
+    to right, 
+    #a71d31, #3f0d12
+    
+  );
+color: #fafafa;
+border: none;
+}
+
+@media (min-width:992px) {
+#postDeets .container{
+    width: 100%;
+    padding: 50px 20px 0px 20px;
+}
+.sellLists{
+    /*margin-left: 50px;*/
+    left: 50%;
+    margin-bottom: 0%;
+    margin-top: 20px;
+}
+.sellLists2{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+}
+
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9" id="postDeets">
+    {{blogs.description | safe}}
+    <br>
+  
+  </div>
+
+    <!-- deck end -->
+    <div class="col-md-3" id="moreBlogPosts">
+      {%  include "more_blogs.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- *********************************  -->
+{% block title %}
+<title>Lifeeline | Best Shopping Place</title>
+<meta name="description" content="Lifeeline | Best Shopping Place" >
+
+{% endblock %}
+<!-- *********************************  -->
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<div class="jumbotron banner">
+  <!-- Empty Black Space -->
+</div>
+<section class="head-cards">
+  <div class="container" id="setContainer">
+    {% for home in home %}
+    {% if forloop.counter == 1 %}
+    <div class="content">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 2 %}
+    <div class="content vertical">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 3 %}
+    <div class="content">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 4 %}
+    <div class="content horizontal">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if forloop.counter == 5 %}
+    <div class="content">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if forloop.counter == 6 %}
+    <div class="content vertical">
+      <div class="picture">
+        <div class="front">
+          <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+          <div class="overly">
+            <h2>{{home.blog.title}}</h2>
+          </div>
+        </div>
+        <div class="back">
+          <a href="{% url 'detail' home.blog.slug %}">
+            <p class="backText">{{home.blog.card_description | safe}}</p>
+            <button type="button" class="btn btn-outline-warning">Read More</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="head-cards-mobile" >
+  <div class="container" id="setContainer">
+    
+      {% for home in home %}
+      <div class="content ">
+        <div class="picture-1">
+          <div class="front">
+            <a href="{% url 'detail' home.blog.slug %}">
+            <img src="/media/{{home.blog.image}}" alt="img.jpg" />
+            <div class="overly">
+              <h2>{{home.blog.title}}</h2>
+            </div>
+          </a>
+          </div>
+          </div>
+        </div>
+  {% endfor %}
+    
+
+  </div>
+</section>
+
+<section style="background-color: #000000;">
+  <!-- Carousel -->
+  <section class="carouselPart">
+    <div class="headings">
+      <center>
+        <h5>Bags</h5>
+      </center>
+    </div>
+
+    <div class="carousel" data-flickity='{ "groupCells": true, "wrapAround": true, "freeScroll": true }'>
+
+      {% for bags in bags %}
+      <div class="carousel-cell">
+        <img src="/media/{{bags.image}}" class="carouselImage">
+        <div class="overley">
+          <h2>{{bags.title}}</h2>
+          <a href="{% url 'detail' bags.slug %}" class="carosalButton">Read More</a><br>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+
+
+
+
+
+<section class="whiteCards">
+  <div class="headings2">
+    <center>
+      <h5>Wallets</h5>
+    </center>
+  </div>
+
+
+  <div class="container">
+    <div class="card-deck">
+      {% for wallet in wallets %}
+      <div class="card">
+        <div class="card-body" id="CradBody">
+          <p class="cardDate"><i class="fas fa-calendar-alt"></i> {{wallet.created_at | date}}</p>
+          <img class="card-img-top" src="/media/{{wallet.image}}" alt="Card image cap">
+          <h5 class="card-title">{{wallet.title}}</h5>
+          <p class="card-text">{{wallet.card_description | safe}}</p>
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'detail' wallet.slug %}" class="btn btn-secondary" role="button"><i
+              class="fas fa-arrow-circle-right"></i> Read More</a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+</section>
+
+
+<section style="background-color: #000000;margin-top: 300px;margin-bottom: 5%;">
+  <!-- Carousel -->
+  <section class="carouselPart">
+    <div class="headings">
+      <center>
+        <h5>Shoes</h5>
+      </center>
+    </div>
+    <div class="carousel" data-flickity='{ "groupCells": true, "wrapAround": true, "freeScroll": true }'>
+
+      {% for shoes in shoes %}
+      <div class="carousel-cell">
+        <img src="/media/{{shoes.image}}" class="carouselImage">
+        <div class="overley">
+          <h2>{{shoes.title}}</h2>
+          <a href="{% url 'detail' shoes.slug %}" class="carosalButton">Read More</a><br>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+
+
+{% endblock %}

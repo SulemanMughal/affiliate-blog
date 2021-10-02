@@ -1,0 +1,27 @@
+{% load static %}
+<div class="headText">
+    <div class="container">
+      <h2>{{categories.question}}</h2>
+      <p>{{categories.description | safe}}</p>
+    </div>
+  </div>
+  <section class="CateCards">
+    <div class="container">
+      <div class="row">
+      {% for sub_category in subcategories %}
+      <div class="col-md-4 col-sm-3 col-xs-3 ">
+
+        <div class="card">
+          <a class="cateCard" href="{% url 'list' sub_category.slug %}">
+            <img class="card-img" src="/media/{{sub_category.image}}" alt="Card image">
+            <div class="content">
+               <h4>{{sub_category.name}}</h4>
+            </div>
+          </a>
+        </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
